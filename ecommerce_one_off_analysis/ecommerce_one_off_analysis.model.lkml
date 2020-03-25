@@ -1,22 +1,29 @@
 connection: "thelook"
 
-include: "/views/*.view.lkml"                # include all views in the views/ folder in this project
-include: "//refined_hub/explores/*.lkml"
+# Option 1 - Start from Hub Only
+# include: "//refined_hub/explores/*.lkml"
+# Use this if only want to use the hub to build this one-off analysis
 
-# include: "/**/view.lkml"                   # include all views in this project
-# include: "my_dashboard.dashboard.lookml"   # include a LookML dashboard called my_dashboard
+# Option 2 - Start from Hub and Managed Views
+# include: "/views_managed/*.view.lkml"
+# Use this to include only the managed views from this spoke
 
-# # Select the views that should be a part of this model,
-# # and define the joins that connect them together.
-#
-# explore: order_items {
-#   join: orders {
-#     relationship: many_to_one
-#     sql_on: ${orders.id} = ${order_items.order_id} ;;
-#   }
-#
-#   join: users {
-#     relationship: many_to_one
-#     sql_on: ${users.id} = ${orders.user_id} ;;
-#   }
-# }
+# Option 3 - Start from All Managed LookML
+include: "/explores_managed/*.lkml"
+# Use this to work off of the completed managed spoke.
+
+# Always do this
+include: "/ecommerce_one_off_analysis/*.lkml"
+#this adds all new refinements contained in this one-off analysis folder
+
+# Note: Use Model Sets to restrict this model's explores to only a subset of team members
+# Note: Including explore folders will also include all views necessary to build those explores
+
+
+explore: +order_items {
+  join: crazy_ndt {
+    sql_on: ${order_items.user_id} = ${crazy_ndt.user_id} ;;
+    relationship: many_to_one
+    type: inner
+  }
+}
