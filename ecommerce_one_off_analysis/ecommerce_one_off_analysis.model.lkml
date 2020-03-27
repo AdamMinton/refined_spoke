@@ -9,8 +9,11 @@ connection: "thelook"
 # Use this to include only the managed views from this spoke
 
 # Option 3 - Start from All Managed LookML
-include: "/explores_managed/*.lkml"
+# include: "/explores_managed/*.lkml"
 # Use this to work off of the completed managed spoke.
+
+# Option 4 - Include only the necessary Explore file
+include: "/explores_managed/ecommerce_order_items.view.lkml"
 
 # Always do this
 include: "/ecommerce_one_off_analysis/*.lkml"
