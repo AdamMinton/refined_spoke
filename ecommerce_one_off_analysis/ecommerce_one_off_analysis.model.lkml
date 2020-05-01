@@ -24,6 +24,7 @@ include: "/ecommerce_one_off_analysis/*.lkml"
 
 
 explore: +order_items {
+  group_label: "Refined Customer Success"
   join: crazy_ndt {
     sql_on: ${order_items.user_id} = ${crazy_ndt.user_id} ;;
     relationship: many_to_one

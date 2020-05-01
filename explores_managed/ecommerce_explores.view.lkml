@@ -3,8 +3,12 @@ include: "//refined_hub/explores/*.lkml"
 
 explore: users {
   extends: [users_hub]
+  group_label: "Refined Managed"
+
 }
 
 explore: events {
   extends: [events_hub]
+  group_label: "Refined Managed"
+
 }
