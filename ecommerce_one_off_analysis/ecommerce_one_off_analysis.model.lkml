@@ -1,4 +1,4 @@
-connection: "thelook"
+connection: "thelook_events"
 
 # Option 1 - Start from Hub Only
 # include: "//refined_hub/explores/*.lkml"
