@@ -13,7 +13,7 @@ connection: "thelook_events"
 # Use this to work off of the completed managed spoke.
 
 # Option 4 - Include only the necessary Explore file
-include: "/explores_managed/ecommerce_order_items.view.lkml"
+include: "/explores_managed/ecommerce_order_items.explore.lkml"
 
 # Always do this
 include: "/ecommerce_one_off_analysis/*.lkml"
